@@ -1680,3 +1680,31 @@ nav a.active::after{
     }
 
 }
+/* ==================================
+   APPLE SECTION TRANSITIONS
+================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(80px) scale(.97);
+
+    filter:blur(8px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.22,1,.36,1),
+        filter .9s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+    filter:blur(0);
+
+}
