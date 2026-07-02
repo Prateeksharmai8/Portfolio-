@@ -27,19 +27,20 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+const navLinks = document.querySelectorAll("#navbar a");
 
 window.addEventListener("scroll", () => {
 
     let current = "";
+    const scrollPosition = window.scrollY + 250;
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 80;
-        const sectionHeight = section.clientHeight;
-
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-            current = section.getAttribute("id");
+        if (
+            scrollPosition >= section.offsetTop &&
+            scrollPosition < section.offsetTop + section.offsetHeight
+        ) {
+            current = section.id;
         }
 
     });
