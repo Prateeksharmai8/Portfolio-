@@ -35,62 +35,67 @@ body{
     overflow-x:hidden;
 
 }
-
-/* ==========================================
-   APPLE GLASS NAVBAR
-========================================== */
+/* ===============================
+   APPLE LIQUID GLASS NAVBAR
+================================ */
 
 #navbar{
-
     position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    width:96%;
+    max-width:1400px;
 
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
 
-    padding:18px 60px;
+    padding:12px 16px;
 
-    background:rgba(10,10,10,.55);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
 
-    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:30px;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.15);
 
-    transition:.4s;
-
-    z-index:1000;
-
+    transition:all .45s ease;
+    z-index:9999;
 }
+
+/* Scroll Effect */
+
 #navbar.shrink{
-    padding:10px 40px;
-    background:rgba(10,10,10,.75);
-    backdrop-filter:blur(25px);
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-    transition:.4s ease;
+
+    top:10px;
+
+    width:94%;
+
+    padding:10px 14px;
+
+    background:rgba(20,20,20,.55);
+
+    backdrop-filter:blur(40px) saturate(200%);
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.08);
+
 }
 
-#navbar{
-    transition:.4s ease;
-}
 /* Logo */
 
 .logo{
 
-    width:55px;
+    width:52px;
 
-    height:55px;
+    height:52px;
 
-    border-radius:50%;
-
-    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    flex-shrink:0;
 
     display:flex;
 
@@ -98,13 +103,17 @@ body{
 
     align-items:center;
 
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#E50914,#ff5a5a);
+
     font-size:22px;
 
     font-weight:800;
 
-    letter-spacing:1px;
+    color:#fff;
 
-    cursor:pointer;
+    margin-right:18px;
 
     transition:.35s;
 
@@ -112,13 +121,25 @@ body{
 
 .logo:hover{
 
-    transform:rotate(10deg) scale(1.1);
+    transform:scale(1.08) rotate(8deg);
 
-    box-shadow:
+}
 
-    0 0 20px var(--accent),
+/* Wrapper */
 
-    0 0 45px rgba(229,9,20,.5);
+.nav-wrapper{
+
+    flex:1;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+}
+
+.nav-wrapper::-webkit-scrollbar{
+
+    display:none;
 
 }
 
@@ -128,13 +149,25 @@ body{
 
     display:flex;
 
-    gap:35px;
+    gap:14px;
 
     list-style:none;
 
+    white-space:nowrap;
+
+    width:max-content;
+
 }
 
+/* Links */
+
 .nav-links a{
+
+    display:block;
+
+    padding:10px 18px;
+
+    border-radius:18px;
 
     color:white;
 
@@ -142,43 +175,25 @@ body{
 
     font-weight:600;
 
-    position:relative;
-
-    transition:.35s;
-
-}
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-7px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--accent);
-
-    transition:.35s;
+    transition:all .35s ease;
 
 }
 
 .nav-links a:hover{
 
-    color:var(--accent);
+    background:rgba(255,255,255,.12);
 
-    text-shadow:0 0 12px rgba(229,9,20,.8);
+    transform:translateY(-2px);
 
 }
 
-.nav-links a:hover::after{
+/* Active */
 
-    width:100%;
+.nav-links a.active{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
 
 }
 
@@ -1550,5 +1565,41 @@ nav a.active::after{
     .certificate-card img{
         height:180px;
     }
+
+}
+
+@media (max-width:768px){
+
+#navbar{
+
+    width:98%;
+
+    padding:10px;
+
+}
+
+.logo{
+
+    width:46px;
+
+    height:46px;
+
+    font-size:18px;
+
+}
+
+.nav-links{
+
+    gap:10px;
+
+}
+
+.nav-links a{
+
+    padding:8px 14px;
+
+    font-size:14px;
+
+}
 
 }
