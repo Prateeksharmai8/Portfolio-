@@ -97,3 +97,45 @@ scrollBtn.addEventListener("click", () => {
 
 });
 
+/* ===================================
+   Apple Liquid Navbar Auto Scroll
+=================================== */
+
+const navWrapper = document.querySelector(".nav-wrapper");
+const activeLink = document.querySelector(".nav-links .active");
+
+if(activeLink){
+
+    activeLink.scrollIntoView({
+
+        behavior:"smooth",
+
+        inline:"center",
+
+        block:"nearest"
+
+    });
+
+}
+
+navLinks.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        setTimeout(()=>{
+
+            link.scrollIntoView({
+
+                behavior:"smooth",
+
+                inline:"center",
+
+                block:"nearest"
+
+            });
+
+        },150);
+
+    });
+
+});
