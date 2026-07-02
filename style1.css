@@ -1772,3 +1772,6 @@ nav a.active::after{
     }
 
 }
+section{
+    scroll-margin-top: 110px;
+}
