@@ -1708,3 +1708,67 @@ nav a.active::after{
     filter:blur(0);
 
 }
+/* ===================================
+   PREMIUM BUTTON EFFECTS
+=================================== */
+
+.btn-primary,
+.btn-secondary,
+.project-buttons a,
+.contact-form button,
+.social-icons a{
+
+    position:relative;
+    overflow:hidden;
+    transition:all .35s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.project-buttons a:hover,
+.contact-form button:hover,
+.social-icons a:hover{
+
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 10px 30px rgba(229,9,20,.35),
+        0 0 25px rgba(229,9,20,.25);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.project-buttons a:active,
+.contact-form button:active,
+.social-icons a:active{
+
+    transform:scale(.96);
+}
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:ripple .6s linear;
+
+    background:rgba(255,255,255,.35);
+
+    pointer-events:none;
+
+}
+
+@keyframes ripple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
