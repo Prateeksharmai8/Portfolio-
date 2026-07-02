@@ -160,3 +160,43 @@ function revealOnScroll(){
 window.addEventListener("scroll", revealOnScroll);
 
 window.addEventListener("load", revealOnScroll);
+
+/* ===================================
+   BUTTON RIPPLE EFFECT
+=================================== */
+
+const rippleButtons = document.querySelectorAll(
+
+".btn-primary, .btn-secondary, .project-buttons a, .contact-form button, .social-icons a"
+
+);
+
+rippleButtons.forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const circle=document.createElement("span");
+
+circle.classList.add("ripple");
+
+const size=Math.max(this.clientWidth,this.clientHeight);
+
+circle.style.width=size+"px";
+
+circle.style.height=size+"px";
+
+circle.style.left=e.offsetX-size/2+"px";
+
+circle.style.top=e.offsetY-size/2+"px";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+
+circle.remove();
+
+},600);
+
+});
+
+});
